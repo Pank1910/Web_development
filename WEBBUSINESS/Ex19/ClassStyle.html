@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <style>
+            /*class dùng khi cần áp dụng style cho nhiều phần tử
+            class có thể áp dụng nhiều lần*/
+            .NenXanhChuTrang{
+                background-color: green;
+                color: white;
+            }
+            .InNghieng{
+                font-style: italic;
+            }
+            /*định danh áp dụng khi chỉ cần style để xác định 1 phần tử duy nhất trên trang
+            ID là duy nhất và không nên sử dụng lặp lại trong 1 trang HTML*/
+            #myparagraph{
+                font-size: 30pt;
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="NenXanhChuTrang">tranduythanh.com</h1>
+        <p  class="NenXanhChuTrang">Đây là blog học lập trình miễn phí</p>
+        <h1  class="NenXanhChuTrang InNghieng">
+            Học gì cũng cần chăm chỉ và kiên trì
+        </h1>
+        <p id="myparagraph">
+            Học gì cũng phải rèn luyện
+        </p>
+    </body>
+</html>

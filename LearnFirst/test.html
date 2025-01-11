@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Grid</title>
+    <style>
+        /* Định dạng lưới cho các video */
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px; /* Khoảng cách giữa các video */
+            padding: 20px;
+        }
+
+        /* Định dạng từng video */
+        .video-item {
+            position: relative;
+            padding-top: 56.25%; /* Để giữ tỷ lệ 16:9 */
+        }
+
+        .video-item iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Trang trí thêm */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Danh Sách Video Năm Mới</h1>
+    <div class="video-container">
+        <!-- Video 1 -->
+        <div class="video-item">
+            <iframe 
+                src="https://www.youtube.com/embed/Thf6-faRGI4" 
+                title="MỘT NĂM MỚI BÌNH AN | SƠN TÙNG M-TP" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="video-item">
+            <iframe 
+                src="https://www.youtube.com/embed/oHg5SJYRHA0" 
+                title="Video 2" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Video 3 -->
+        <div class="video-item">
+            <iframe 
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                title="Video 3" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</body>
+</html>
+
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Tiều đề trang</title>
+    </head>
+    <body>
+        
+    </body>
+</html>
