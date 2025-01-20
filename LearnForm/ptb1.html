@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <script>
+            function giai_phuongtrinh_bac1()
+            {
+                // alert("Muốn giải phương trình hả?")
+                // formptb1.hesoa -> trả về đối tượng input là ô nhập liệu
+                // formptb1.hesoa.value -> trả về giá trị mà người dùng nhập vào nó
+                hsa=formptb1.hesoa.value
+                // vì dữ liệu nhập từ ô nhập liệu luôn là chuỗi nên ta cần đổi qua số
+                hsa=eval(hsa)
+                hsb=eval(formptb1.hesob.value)
+                nghiem=""
+                if (hsa==0 && hsb==0)
+                {
+                    nghiem="Tùm lum nghiệm"
+                }
+                else if (hsa==0 && hsb!=0)
+                {
+                    nghiem="Vô nghiệm"
+                }
+                else
+                {
+                    nghiem="X="+(-hsb/hsa)
+                }
+                // Để truy xuất tới thẻ html thông qua id
+                // Cụ thể là truy xuất thẻ td mà ta đặt id="ketqua"
+                tdketqua=document.getElementById("ketqua")
+                // Hiển thị kết quả cho id
+                tdketqua.innerText=nghiem
+            }
+        </script>
+    </head>
+    <body>
+        <form name="formptb1">
+            <table border="1">
+                <caption style="font-size: 20px;">Phương trình bậc 1</caption>
+                <tbody>
+                    <tr>
+                        <td><label for="hesoa">Hệ số a:</label></td>
+                        <td>
+                            <input type="text" id="hesoa" name="hesoa">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="hesob">Hệ số b:</label></td>
+                        <td>
+                            <input type="text" id="hesob" name="hesob">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kết quả:</td>
+                        <td id="ketqua"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="button" value="Giải" onclick="giai_phuongtrinh_bac1()">
+                            <input type="button" value="Tiếp">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </body>
+</html>

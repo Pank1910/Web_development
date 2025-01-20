@@ -1,0 +1,145 @@
+<html>
+    <head>
+        <style>
+            @import url(mainstyle.css);
+        </style>
+    </head>
+    <body>
+        <div class="image">
+            <img src="DeLong.jpg"/>
+        </div>
+        <h1>Travel Expense Report</h1>
+        <hr/>
+
+        <form id="myform">
+            <div>
+                <label for="firstname">1&#10089; First Name:</label>
+                <input type="text" id="firstname" name="firstname">
+                <label for="lastname">Last Name:</label>
+                <input type="text" id="lastname" name="lastname">
+            </div>
+
+            <div>
+                <label for="social">2&#10089; Social Security Number:</label>
+                <input type="text" id="social" name="social">
+            </div>
+
+            <div>
+                <label for="department">3&#10089; Department:</label>
+                <select name="department" id="department">
+                    <option value="accounting">Accounting</option>
+                    <option value="hr">HR</option>
+                    <option value="it">IT</option>
+                    <option value="marketing">Marketing</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="describe">4&#10089; Describe the purpose of your trip.</label>
+            </div> 
+            <div>
+                <textarea id="describe" cols="70" rows="4"></textarea>
+            </div>
+
+            <div>
+                5&#10089; Itemize your travel expenses
+            </div>
+            <div>
+                <table border="1">
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="date" id="date" name="date">
+                        </td>
+                        <td>
+                            <input type="text" id="description" name="description">
+                        </td>
+                        <td>
+                            <select id="Category" name="Category">
+                                <option value="meal">Meal</option>
+                                <option value="transportation">Transportation</option>
+                                <option value="hotel">Hotel</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" id="amount" name="amount">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="date" id="date" name="date">
+                        </td>
+                        <td>
+                            <input type="text" id="description" name="description">
+                        </td>
+                        <td>
+                            <select id="Category" name="Category">
+                                <option value="meal">Meal</option>
+                                <option value="transportation">Transportation</option>
+                                <option value="hotel">Hotel</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" id="amount" name="amount">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="date" id="date" name="date">
+                        </td>
+                        <td>
+                            <input type="text" id="description" name="description">
+                        </td>
+                        <td>
+                            <select id="Category" name="Category">
+                                <option value="meal">Meal</option>
+                                <option value="transportation">Transportation</option>
+                                <option value="hotel">Hotel</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" id="amount" name="amount">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="date" id="date" name="date">
+                        </td>
+                        <td>
+                            <input type="text" id="description" name="description">
+                        </td>
+                        <td>
+                            <select id="Category" name="Category">
+                                <option value="meal">Meal</option>
+                                <option value="transportation">Transportation</option>
+                                <option value="hotel">Hotel</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" id="amount" name="amount">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div>
+                6&#10089; Have you submitted your receipts?
+                <input type="radio" id="yes" name="yes"><label for="yes">Yes</label>
+                <input type="radio" id="no" name="no"><label for="no">No</label>
+            </div>
+
+            <div>
+                <input type="submit" id="submit" value="Submit travel expenses" onclick="alert('Submit travel expenses')">
+                <input type="reset" id="reset" value="Reset">
+            </div>
+            <div>
+                Question? Contact Debbie Larson in Accounting (ext. 2150).
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+div {
+    margin-bottom: 20px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th {
+    background-color: #0000FF;
+    color: white;
+}
+
+tr:hover {
+    background-color: yellow;
+}

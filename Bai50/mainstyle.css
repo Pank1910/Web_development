@@ -1,0 +1,20 @@
+.image {
+    text-align: center;
+}
+body {
+    background-color: rgb(170, 231, 255);
+}
+th, td {
+    border: 1px solid black;
+    padding: 3px 7px 3px 7px;
+}
+hr {
+    background-color: brown;
+    height: 2pt;
+}
+textarea {
+    resize: none;
+}
+div {
+    margin-bottom: 20px;
+}

@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>For giai thừa</title>
+        <script type="text/javascript">
+            function tinhGiaiThua()
+            {
+                n=parseInt(myform.txtn.value)
+                gt=1
+                for(i=1;i<=n;i++)
+                {
+                    gt=gt*i
+                }
+                document.getElementById("ketqua").innerText=gt
+            }
+        </script>
+    </head>
+    <body>
+        <form name="myform">
+            <p>Nhập n:</p>
+            <input type="text" id="txtn">
+            <p id="ketqua"></p>
+            <button type="button" onclick="tinhGiaiThua()">Tính Giai thừa</button>
+        </form>
+    </body>
+</html>

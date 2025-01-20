@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            @import url(mainstyle.css);
+        </style>
+        <script src="mainjs.js"></script>
+    </head>
+    <body>
+        <form id="formdangky">
+            <h1>Đăng ký thành viên</h1>
+            <hr/>
+            <div>
+                <label for="ten">Tên(*)</label>
+                <input type="text" id="ten" name="ten" required>
+                <br/>Ngày sinh(*)
+                <!-- Dropdowns sẽ được nạp tự động bằng JavaScript -->
+                <label for="day">Ngày: </label>
+                <select id="day" name="day"></select>
+                <label for="month">Tháng: </label>
+                <select id="month" name="month"></select>
+                <label for="year">Năm: </label>
+                <select id="year" name="year"></select><br>
+                <br/>Giới tính(*)
+                <input type="radio" id="nam" name="gioitinh" value="Nam" checked><label for="nam">Nam</label>
+                <input type="radio" id="nu" name="gioitinh" value="Nữ"><label for="nu">Nữ</label>
+                <br/><label for="email">Email(*)</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div>
+                Sở thích của bạn: <br/>
+                <input type="checkbox" name="sothich" id="muasam" value="muasam"><label for="muasam">Mua sắm</label>
+                <br/><input type="checkbox" name="sothich" id="dulich" value="dulich"><label for="dulich">Du lịch</label>
+                <br/><input type="checkbox" name="sothich" id="tanngau" value="tanngau"><label for="tanngau">Tán ngẫu</label>
+                <br/><input type="checkbox" name="sothich" id="docsach" value="docsach"><label for="docsach">Đọc sách</label>
+                <br/><input type="checkbox" name="sothich" id="nghenhac" value="nghenhac"><label for="nghenhac">Nghe nhạc</label>
+                <br/>Màu yêu thích của bạn: <br/>
+                <input type="radio" name="mauyeuthich" id="xanhdatroi" value="xanhdatroi"><label for="xanhdatroi" style="background-color: blue;">Màu xanh da trời</label>
+                <br/><input type="radio" name="mauyeuthich" id="do" value="do"><label for="do" style="background-color: red;">Màu đỏ</label>
+                <br/><input type="radio" name="mauyeuthich" id="vang" value="vang"><label for="vang" style="background-color: yellow;">Màu vàng</label>
+                <br/><input type="radio" name="mauyeuthich" id="xanhlacay" value="xanhlacay"><label for="xanhlacay" style="background-color: green;">Màu xanh xanh lá cây</label>
+                <br/><input type="radio" name="mauyeuthich" id="xanhtim" value="xanhtim"><label for="xanhtim" style="background-color: blueviolet;">Màu xanh tím</label>
+            </div>
+
+            <div>
+                <input type="button" value="Đăng ký">
+                <input type="reset" value="Tiếp">
+            </div>   
+        </form>
+        <table id="dangkythanhvien" border="1">
+            <tr>
+                <th>Tên</th>
+                <th>Email</th>
+                <th>Giới tính</th>
+                <th>Năm sinh</th>
+                <th>Sở thích</th>
+                <th>Màu yêu thích</th>
+            </tr>
+        </table>
+        <script src="mainjs.js"></script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+body {
+    background-color: rgb(170, 231, 255);
+}
+
+.center {
+    text-align: center;
+}
+
+table {
+    margin: 0 auto;
+}
+
+td {
+    vertical-align: top;
+}
+
+label {
+    width: 120px;
+    /* Adjust the width as needed */
+    display: inline-block;
+    text-align: left;
+    margin-right: 5px;
+    /* Add some spacing between label and input */
+}
+
+textarea {
+    resize: none;
+}
+
+input[type="checkbox"], input[type="radio"]{
+    accent-color: var(--co-body-accent)
+}
+:root{
+    --co-body-accent: green;
+}

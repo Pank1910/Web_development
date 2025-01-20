@@ -1,0 +1,32 @@
+body {
+    background-color: #ccffff;
+}
+table {
+    font-size: 15pt;
+    margin-top: 20px;
+}
+h1 {
+    color: red;
+}
+hr {
+    background-color: brown;
+}
+img {
+    width: 50px;
+    height: 50px;
+}
+input[type="checkbox"], input[type="radio"] {
+    width: 15px; 
+    height: 15px;
+    accent-color: var(--co-body-accent)
+}
+:root{
+    --co-body-accent: green;
+}
+input[type="date"] {
+    width: 200px; 
+    height: 30px;
+}
+textarea {
+    height: 30px;
+}
