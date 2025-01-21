@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <script type="text/javascript">
+            fullName="SV123;Nguyễn Thị Lan;lan@st.uel.edu.vn"
+            //Cắt chuỗi email
+            vt=fullName.lastIndexOf(";") //Lấy số vị trí ;
+            email=fullName.substring(vt+1) //Cắt chuỗi từ vị trí vt+1 (ngay sau ;) đến hết chuỗi fullName
+            document.writeln(email) //Ghi nội dung của biến email lên web
+            //Cắt chuỗi họ tên
+            // Lấy vị trí của ký tự `;` đầu tiên và thứ hai
+            start = fullName.indexOf(";") + 1
+            end = fullName.lastIndexOf(";")
+            // Lấy phần chuỗi giữa
+            name = fullName.substring(start, end)
+            // Hiển thị kết quả
+            document.writeln(name)
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

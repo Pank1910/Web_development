@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <script type="text/javascript">
+            function callAjax()
+            {
+                var xhr=new XMLHttpRequest()
+                xhr.open("Get","datasets/data.xml",true)
+                xhr.send()
+                xhr.onreadystatechange=function(){
+                    if(xhr.readyState==4 && xhr.status==200)
+                    {
+                        loadBooks(xhr.responseXML)
+                    }
+                }
+            }
+            function loadBooks(xmlDoc)
+            {
+                bookbody=document.getElementById("bookbody")
+                books=xmlDoc.getElementsByTagName("book")
+                for(i=0;i<books.length;i++)
+                {
+                    book=books[i]
+                    title=book.getElementsByTagName("title")[0].childNodes[0].nodeValue
+                    author=book.getElementsByTagName("author")[0].childNodes[0].nodeValue
+                    year=book.getElementsByTagName("year")[0].childNodes[0].nodeValue
+                    tr=document.createElement("tr")
+                    bookbody.appendChild(tr)
+                    
+                    td=document.createElement("td")
+                    td.innerText=title
+                    tr.appendChild(td)
+
+                    td=document.createElement("td")
+                    td.innerText=author
+                    tr.appendChild(td)
+
+                    td=document.createElement("td")
+                    td.innerText=year
+                    tr.appendChild(td)
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <button type="button" onclick="callAjax()">Load Books</button>
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>Title</td>
+                    <td>Author</td>
+                    <td>Year</td>
+                </tr>
+            </thead>
+            <tbody id="bookbody">
+
+            </tbody>
+        </table>
+    </body>
+</html>

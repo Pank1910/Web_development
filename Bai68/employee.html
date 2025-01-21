@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <script>
+            function getCollection()
+            {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "cd_catalog.xml", true);
+                xhr.send();
+                xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // Load thành công dữ liệu XML
+                    var xmlDoc = xhr.responseXML;
+                    var CDs = xmlDoc.getElementsByTagName("CD");
+                    var tbody = document.getElementById("CDbody");
+
+                    // Duyệt qua danh sách
+                    for (var i = 0; i < CDs.length; i++) {
+                        var title = CDs[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue;
+                        var artist = CDs[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue;
+
+                        // Tạo hàng 
+                        var tr = document.createElement("tr");
+
+                        // Tạo các cột
+                        var tdArtist = document.createElement("td");
+                        tdArtist.innerText = artist;
+                        tr.appendChild(tdArtist);
+
+                        var tdTitle = document.createElement("td");
+                        tdTitle.innerText = title;
+                        tr.appendChild(tdTitle);
+
+                        // Thêm hàng vào bảng
+                        tbody.appendChild(tr);
+                    }
+                } else {
+                    // Xử lý lỗi khi không load được dữ liệu XML
+                    console.error("Không thể load dữ liệu XML");
+                }
+            };
+            }
+        </script>
+    </head>
+    <body>
+        <button onclick="getCollection()">Get my CD collection</button>
+        <table border="1">
+            <thead>
+                <tr style="text-align: center;">
+                    <th>Artist</th>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody id="CDbody">
+
+            </tbody>
+        </table>
+    </body>
+</html>

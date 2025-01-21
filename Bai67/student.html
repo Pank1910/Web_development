@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <style>
+            @import url(mainstyle.css);
+        </style>
+        <script>
+            var dataset = `
+                <sinhviens>
+                    <sinhvien>
+                        <mssv>K123456789</mssv>
+                        <hoTen>Quách Thị Bán Bún Bò</hoTen>
+                        <ngaySinh>7/7/1997</ngaySinh>
+                        <gioiTinh>Nữ</gioiTinh>
+                    </sinhvien>
+                    <sinhvien>
+                        <mssv>K12345000</mssv>
+                        <hoTen>Hồng Lâu Mộng</hoTen>
+                        <ngaySinh>2/2/1992</ngaySinh>
+                        <gioiTinh>Nam</gioiTinh>
+                    </sinhvien>
+                    <sinhvien>
+                        <mssv>K1674000</mssv>
+                        <hoTen>Hồ Văn Đồ</hoTen>
+                        <ngaySinh>2/7/1997</ngaySinh>
+                        <gioiTinh>Nam</gioiTinh>
+                    </sinhvien>
+                </sinhviens>
+                `;
+        </script>
+    </head>
+    <body>
+        <table border="1">
+            <thead>
+                <tr>
+                    <td class="r1" colspan="4">Danh sách Sinh Viên</td>
+                </tr>
+                <tr>
+                    <th>Mã Sinh Viên</th>
+                    <th>Họ Tên</th>
+                    <th>Ngày Sinh</th>
+                    <th>Giới Tính</th>
+                </tr>
+            </thead>
+            <tbody id="tbodysinhvien">
+
+            </tbody>
+        </table>
+        <script>
+            function tai_danh_sach()
+            {
+                // Bước 1: Nạp mô hình XML DOM
+                var parser = new DOMParser();
+                var xmlDoc = parser.parseFromString(dataset,"text/xml");
+                // Lấy toàn bộ thẻ student của dataset
+                students=xmlDoc.getElementsByTagName("sinhvien")
+                for(i=0;i<students.length;i++)
+                {
+                    // Lấy thẻ sinhvien thứ i:
+                    sti=students[i]
+                    mssv=sti.getElementsByTagName("mssv")[0].childNodes[0].nodeValue
+                    hoTen=sti.getElementsByTagName("hoTen")[0].childNodes[0].nodeValue
+                    ngaySinh=sti.getElementsByTagName("ngaySinh")[0].childNodes[0].nodeValue
+                    gioiTinh=sti.getElementsByTagName("gioiTinh")[0].childNodes[0].nodeValue
+                    // Bước 2: Xử lý HTML DOM để hiển thị dữ liệu từ XML lên giao diện
+                    // Tìm và lấy phần tử <tbody> từ HTML DOM
+                    tbodysinhvien=document.getElementById("tbodysinhvien")
+                    // Tạo một dòng mới <tr>
+                    tr=document.createElement("tr")
+                    // Thêm dòng mới này vào cuối danh sách các dòng trong <tbody>.
+                    tbodysinhvien.appendChild(tr)
+                    
+                    // Tạo một ô mới <td>
+                    tdmssv=document.createElement("td")
+                    // Gán giá trị của biến mssv (được lấy từ dữ liệu XML) vào nội dung của ô.
+                    tdmssv.innerText=mssv
+                    // Thêm ô này vào dòng hiện tại.
+                    tr.appendChild(tdmssv)
+
+                    tdhoten=document.createElement("td")
+                    tdhoten.innerText=hoTen
+                    tr.appendChild(tdhoten)
+
+                    tdngaysinh=document.createElement("td")
+                    tdngaysinh.innerText=ngaySinh
+                    tr.appendChild(tdngaysinh)
+
+                    tdgioitinh=document.createElement("td")
+                    tdgioitinh.innerText=gioiTinh
+                    tr.appendChild(tdgioitinh)
+                }
+            }
+            tai_danh_sach()
+        </script>
+        <script src="mainjs.js"></script>
+    </body>
+</html>

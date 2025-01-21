@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <script type="text/javascript">
+            function loadEmployees() {
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "dataset.xml", true);
+                xhr.send();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        populateDroplist(xhr.responseXML);
+                    }
+                };
+            }
+    
+            function populateDroplist(xmlDoc) {
+                const droplist = document.getElementById("titleDroplist");
+                const titles = new Set(); // Dùng Set để loại bỏ trùng lặp
+                const employees = xmlDoc.getElementsByTagName("employee");
+    
+                for (let i = 0; i < employees.length; i++) {
+                    const title = employees[i].getAttribute("title");
+                    titles.add(title);
+                }
+    
+                // Thêm các title vào Droplist
+                titles.forEach(title => {
+                    const option = document.createElement("option");
+                    option.value = title;
+                    option.innerText = title;
+                    droplist.appendChild(option);
+                });
+    
+                // Đăng ký sự kiện thay đổi để hiển thị danh sách
+                droplist.addEventListener("change", function () {
+                    displayEmployees(xmlDoc, this.value);
+                });
+            }
+    
+            function displayEmployees(xmlDoc, selectedTitle) {
+                const tbody = document.getElementById("employeeBody");
+                tbody.innerHTML = ""; // Xóa dữ liệu cũ
+    
+                const employees = xmlDoc.getElementsByTagName("employee");
+                for (let i = 0; i < employees.length; i++) {
+                    const employee = employees[i];
+                    const title = employee.getAttribute("title");
+                    if (title === selectedTitle) {
+                        const name = employee.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+                        const phone = employee.getElementsByTagName("phone")[0].childNodes[0].nodeValue;
+                        const id = employee.getAttribute("id");
+    
+                        const tr = document.createElement("tr");
+    
+                        
+                        td = document.createElement("td");
+                        td.innerText = id;
+                        tr.appendChild(td);
+
+                        td = document.createElement("td");
+                        td.innerText = name;
+                        tr.appendChild(td);
+    
+                        td = document.createElement("td");
+                        td.innerText = phone;
+                        tr.appendChild(td);
+    
+                        tbody.appendChild(tr);
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body onload="loadEmployees()">
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>Chọn Title:</td>
+                    <td colspan="2">
+                        <select id="titleDroplist">
+                            <option value="">Select Title</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr style="background-color: blue; color: white;">
+                    <td>Mã Employee</td>
+                    <td>Tên Employee</td>
+                    <td>Phone Employee</td>
+                </tr>
+            </thead>
+            <tbody id="employeeBody">
+
+            </tbody>
+        </table>
+    </body>
+</html>

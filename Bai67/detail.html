@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Tiêu đề trang</title>      
+    </head>
+    <style>
+        th {
+            background-color: orange;
+        }
+    </style>
+    </head>
+    <body>
+        <table border="1">
+            <tr>
+                <th colspan="2">Chi tiết thông tin Sinh viên</th>
+            </tr>
+            <tr>
+                <td>Mã sinh viên</td>
+                <td id="tdid"></td>
+            </tr>
+            <tr>
+                <td>Họ tên</td>
+                <td id="tdname"></td>
+            </tr>
+            <tr>
+                <td>Ngày sinh</td>
+                <td id="tdbirthday"></td>
+            </tr>
+            <tr>
+                <td>Giới tính</td>
+                <td id="tdgender"></td>
+            </tr>
+        </table>
+        <script>
+            // Lấy query string từ URL
+            const queryString = window.location.search;
+
+            // Phân tích query string
+            const urlParams = new URLSearchParams(queryString);
+
+            // Lấy giá trị các tham số
+            const id = urlParams.get('id');
+            const name = urlParams.get('name');
+            const birthday = urlParams.get('birthday');
+            const gender = urlParams.get('gender');
+
+            // Hiển thị thông tin trong bảng
+            document.getElementById("tdid").innerText = id;
+            document.getElementById("tdname").innerText = name;
+            document.getElementById("tdbirthday").innerText = birthday;
+            document.getElementById("tdgender").innerText = gender;
+        </script>
+    </body>
+</html>

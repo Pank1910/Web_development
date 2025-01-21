@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <style>
+        .male {
+            background-color: yellow;
+        }
+        .female {
+            background-color: pink;
+        }
+    </style>
+    <script>
+        function hienthi_sinhvien() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "dataset.xml", true);
+            xhr.send();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // Load thành công dữ liệu XML
+                    var xmlDoc = xhr.responseXML;
+                    var sinhviens = xmlDoc.getElementsByTagName("sinhvien");
+                    var tbody = document.getElementById("sinhvien-body");
+
+                    // Xóa nội dung cũ (nếu có)
+                    tbody.innerHTML = "";
+
+                    // Duyệt qua danh sách sinh viên
+                    for (var i = 0; i < sinhviens.length; i++) {
+                        var mssv = sinhviens[i].getElementsByTagName("mssv")[0].childNodes[0].nodeValue;
+                        var hoTen = sinhviens[i].getElementsByTagName("hoTen")[0].childNodes[0].nodeValue;
+                        var ngaySinh = sinhviens[i].getElementsByTagName("ngaySinh")[0].childNodes[0].nodeValue;
+                        var gioiTinh = sinhviens[i].getElementsByTagName("gioiTinh")[0].childNodes[0].nodeValue;
+                        var hinh = sinhviens[i].getElementsByTagName("hinh")[0].childNodes[0].nodeValue;
+
+                        // Tạo hàng cho sinh viên
+                        var tr = document.createElement("tr");
+                        tr.className = gioiTinh === "Nam" ? "male" : "female";
+
+                        // Tạo các cột
+                        var tdMssv = document.createElement("td");
+                        tdMssv.innerText = mssv;
+                        tr.appendChild(tdMssv);
+
+                        var tdHoTen = document.createElement("td");
+                        tdHoTen.innerText = hoTen;
+                        tr.appendChild(tdHoTen);
+
+                        var tdNgaySinh = document.createElement("td");
+                        tdNgaySinh.innerText = ngaySinh;
+                        tr.appendChild(tdNgaySinh);
+
+                        var tdGioiTinh = document.createElement("td");
+                        tdGioiTinh.innerText = gioiTinh;
+                        tr.appendChild(tdGioiTinh);
+
+                        var tdHinh = document.createElement("td");
+                        var img = document.createElement("img");
+                        img.src = "images/" + hinh;
+                        img.width = 100;
+                        img.height = 100;
+                        tdHinh.appendChild(img);
+                        tr.appendChild(tdHinh);
+
+                        // Thêm hàng vào bảng
+                        tbody.appendChild(tr);
+                    }
+                } else {
+                    // Xử lý lỗi khi không load được dữ liệu XML
+                    console.error("Không thể load dữ liệu XML");
+                }
+            };
+        }
+    </script>
+</head>
+<body>
+    <h1>Thông tin sinh viên</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Mã</th>
+                <th>Tên</th>
+                <th>Ngày sinh</th>
+                <th>Giới tính</th>
+                <th>Hình</th>
+            </tr>
+        </thead>
+        <tbody id="sinhvien-body">
+            <!-- Các dòng sinh viên sẽ được thêm vào đây -->
+        </tbody>
+    </table>
+    <button onclick="hienthi_sinhvien()">Hiển thị Sinh viên</button>
+</body>
+</html>

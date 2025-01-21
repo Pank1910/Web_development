@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <style>
+            @import url(mainstyle.css);
+        </style>
+        <script>
+            var txt = `
+            <sinhvien>
+                <mssv>K123456789</mssv>
+                <hoTen>Quách Thị Bán Bún Bò</hoTen>
+                <ngaySinh>7/7/1997</ngaySinh>
+                <gioiTinh>Nữ</gioiTinh>
+            </sinhvien>
+        `;
+        </script>
+        <script>
+            function docthongtin()
+            {
+                var parser = new DOMParser();
+                var xmlDoc = parser.parseFromString(txt,"text/xml");
+                mssv=xmlDoc.getElementsByTagName("mssv")[0].childNodes[0].nodeValue;
+                hoTen=xmlDoc.getElementsByTagName("hoTen")[0].childNodes[0].nodeValue;
+                ngaySinh=xmlDoc.getElementsByTagName("ngaySinh")[0].childNodes[0].nodeValue;
+                gioiTinh=xmlDoc.getElementsByTagName("gioiTinh")[0].childNodes[0].nodeValue;
+                document.getElementById("mssv").innerText=mssv
+                document.getElementById("hoTen").innerText=hoTen
+                document.getElementById("ngaySinh").innerText=ngaySinh
+                document.getElementById("gioiTinh").innerText=gioiTinh
+            }
+        </script>
+    </head>
+    <body>
+        <table border="1">
+            <tr>
+                <th colspan="2">Chi tiết thông tin Sinh Viên</th>
+            </tr>
+            <tr>
+                <td>Mã Sinh Viên</td>
+                <td id="mssv"></td>
+            </tr>
+            <tr>
+                <td>Họ tên</td>
+                <td id="hoTen"></td>
+            </tr>
+            <tr>
+                <td>Ngày Sinh</td>
+                <td id="ngaySinh"></td>
+            </tr>
+            <tr>
+                <td>Giới tính</td>
+                <td id="gioiTinh"></td>
+            </tr>
+        </table>
+        <button onclick="docthongtin()">Đọc thông tin</button>
+    </body>
+</html>
