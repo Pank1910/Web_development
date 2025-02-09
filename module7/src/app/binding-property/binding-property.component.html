@@ -1,0 +1,12 @@
+<div>
+    <label [for]="nameid">Name:</label>
+    <input [id]="nameid" [value]="name" /><br>
+  
+    <label [for]="emailid">Email:</label>
+    <input [id]="emailid" [value]="email" [disabled]="isDisabled" /><br>
+  
+    <p>Email hiển thị: {{ email }}</p>
+  
+    <button (click)="toggleDisabled()">Bật/Tắt Email</button>
+</div>
+  

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo DOM Table</title>
+        <meta charset='utf-8'>
+        <script>
+            function addProduct()
+            {
+                tbody=document.getElementById("tablebody")
+                tr=document.createElement("tr")
+
+                tdCheckbox=document.createElement("td")
+                checkbox=document.createElement("input")
+                checkbox.setAttribute("type","checkbox")
+                tdCheckbox.appendChild(checkbox)
+                tr.appendChild(tdCheckbox)
+
+                tdProductId=document.createElement("td")
+                tdProductId.innerText=frmProduct.productid.value
+                tr.appendChild(tdProductId)
+
+                tdProductName=document.createElement("td")
+                tdProductName.innerText=frmProduct.productname.value
+                tr.appendChild(tdProductName)
+
+                tdUnitPrice=document.createElement("td")
+                tdUnitPrice.innerText=frmProduct.unitprice.value
+                tr.appendChild(tdUnitPrice)
+
+                tbody.appendChild(tr)
+            }
+            function deleteSelected() {
+                let tbody = document.getElementById("tablebody");
+                let rows = tbody.querySelectorAll("tr");
+
+                // Lọc và xóa các dòng có checkbox được chọn
+                rows.forEach(row => {
+                    let checkbox = row.querySelector("input[type='checkbox']");
+                    if (checkbox && checkbox.checked) {
+                        tbody.removeChild(row);
+                    }
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <form id="frmProduct">
+            <table border="1">
+                <tr>
+                    <td>Product Id:</td>
+                    <td>
+                        <input type="text" id="productid">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Product Name:</td>
+                    <td>
+                        <input type="text" id="productname">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Unit Price:</td>
+                    <td>
+                        <input type="text" id="unitprice">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="button" onclick="addProduct()">Add Product</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <table border="1">
+            <caption>List Products:</caption>
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Product Id</th>
+                    <th>Product Name</th>
+                    <th>Unit Price</th>
+                </tr>
+            </thead>
+            <tbody id="tablebody">
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <button type="button" onclick="deleteSelected()">Delete</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+</html>

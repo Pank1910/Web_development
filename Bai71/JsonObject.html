@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <script>
+            var user = {
+            "id": "100005823642721",
+            "first_name": "Duy Thanh",
+            "gender": "male",
+            "last_name": "Trần",
+            "link": "https://www.facebook.com/duythanhcse",
+            "locale": "en_US",
+            "birthday": "20/12/1961",
+            "name": "Duy Thanh Trần",
+            "username": "duythanhcse"
+            }
+        </script>
+    </head>
+    <body>
+        <table border="1">
+            <caption>Thông tin chi tiết của User:</caption>
+                <tr>
+                    <td>Id:</td>
+                    <td id="id"></td>
+                </tr>
+                <tr>
+                    <td>First_name:</td>
+                    <td id="first_name"></td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td id="gender"></td>
+                </tr>
+                <tr>
+                    <td>Last_name:</td>
+                    <td id="last_name"></td>
+                </tr>
+                <tr>
+                    <td>Link:</td>
+                    <td id="link"></td>
+                </tr>
+                <tr>
+                    <td>Locale:</td>
+                    <td id="locale"></td>
+                </tr>
+                <tr>
+                    <td>Birthday:</td>
+                    <td id="birthday"></td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td id="name"></td>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td id="username"></td>
+                </tr>
+        </table>
+        <script>
+            document.getElementById("id").innerText=user.id
+            document.getElementById("first_name").innerText=user.first_name
+            document.getElementById("gender").innerText=user.gender
+            document.getElementById("last_name").innerText=user.last_name
+            document.getElementById("link").innerText=user.link
+            document.getElementById("locale").innerText=user.locale
+            document.getElementById("birthday").innerText=user.birthday
+            document.getElementById("name").innerText=user.name
+            document.getElementById("username").innerText=user.username
+        </script>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <script>
+            function doiHinh(link)
+            {
+                img=document.getElementById("myimg")
+                img.setAttribute("src",link)
+            }
+        </script>
+    </head>
+    <body>
+        <button type="button" onclick="doiHinh('images/before.jpg')">Hình 1</button>
+        <button type="button" onclick="doiHinh('images/after.jpg')">Hình 2</button>
+        <img src="" alt="Chưa có hình" id="myimg" width="170" height="256">
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <script>
+            dataset={"id":1000,
+                    "name":"Máy tính",
+                    "products":[
+                        {"id":"p1", "name":"Dell Inspiron 15","price":15},
+                        {"id":"p2", "name":"Sony Vio","price":18},
+                        {"id":"p3", "name":"HP 12 core","price":25},
+                        {"id":"p4", "name":"Acer 12","price":35},
+                    ]
+            }
+        </script>
+    </head>
+    <body>
+        <table border="1">
+            <tr>
+                <td>Cate ID:</td>
+                <td id="cateid"></td>
+            </tr>
+            <tr>
+                <td>Cate Name:</td>
+                <td id="catename"></td>
+            </tr>
+        </table>
+        <script>
+            document.getElementById("cateid").innerText=dataset.id
+            document.getElementById("catename").innerText=dataset.name
+        </script>
+        <table border="1">
+            <caption>List Products</caption>
+            <thead>
+                <tr>
+                    <th>Product Id</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody id="productbody">
+
+            </tbody>
+        </table>
+        <script>
+            productbody=document.getElementById("productbody")
+            for(i=0;i<dataset.products.length;i++)
+            {
+                product=dataset.products[i]
+                tr=document.createElement("tr")
+                productbody.appendChild(tr)
+
+                td=document.createElement("td")
+                td.innerText=product.id
+                tr.appendChild(td)
+
+                td=document.createElement("td")
+                td.innerText=product.name
+                tr.appendChild(td)
+
+                td=document.createElement("td")
+                td.innerText=product.price
+                tr.appendChild(td)
+            }
+        </script>
+    </body>
+</html>

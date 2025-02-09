@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Demo DOM Table</title>
+        <meta charset='utf-8'>
+        <script>
+            function addProduct()
+            {
+                tbody=document.getElementById("tablebody")
+                tr=document.createElement("tr")
+
+                tdProductId=document.createElement("td")
+                tdProductId.innerText=frmProduct.productid.value
+                tr.appendChild(tdProductId)
+
+                tdProductName=document.createElement("td")
+                tdProductName.innerText=frmProduct.productname.value
+                tr.appendChild(tdProductName)
+
+                tdUnitPrice=document.createElement("td")
+                tdUnitPrice.innerText=frmProduct.unitprice.value
+                tr.appendChild(tdUnitPrice)
+
+                tbody.appendChild(tr)
+            }
+        </script>
+    </head>
+    <body>
+        <form id="frmProduct">
+            <table border="1">
+                <tr>
+                    <td>Product Id:</td>
+                    <td>
+                        <input type="text" id="productid">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Product Name:</td>
+                    <td>
+                        <input type="text" id="productname">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Unit Price:</td>
+                    <td>
+                        <input type="text" id="unitprice">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="button" onclick="addProduct()">Add Product</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <table border="1">
+            <caption>List Products:</caption>
+            <thead>
+                <tr>
+                    <th>Product Id</th>
+                    <th>Product Name</th>
+                    <th>Unit Price</th>
+                </tr>
+            </thead>
+            <tbody id="tablebody">
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">Designed by Pank</td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+</html>

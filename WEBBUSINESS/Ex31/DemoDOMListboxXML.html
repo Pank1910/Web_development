@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <script type="text/javascript">
+            var dataset="<bookstore>"
+                dataset+="<book>"
+                    dataset+="<title>Everyday Italian</title>"
+                    dataset+="<author>Giada De Laurentiis</author>"
+                    dataset+="<year>2005</year>"
+                dataset+="</book>"
+                dataset+="<book>"
+                    dataset+="<title>HTML and Javascript</title>"
+                    dataset+="<author>Tom</author>"
+                    dataset+="<year>2023</year>"
+                    dataset+="</book>"
+                dataset+="<book>"
+                    dataset+="<title>AngulaJS</title>"
+                    dataset+="<author>Peter</author>"
+                    dataset+="<year>2022</year>"
+                dataset+="</book>"
+     dataset+="</bookstore>"
+        </script>
+    </head>
+    <body>
+        <select id="bookList"></select>
+        <script>
+            booklist=document.getElementById("bookList")
+            parser=new DOMParser()
+            xmlDoc=parser.parseFromString(dataset,"text/xml")
+
+            books=xmlDoc.getElementsByTagName("book")
+            for(i=0;i<books.length;i++)
+            {
+                book=books[i]
+                title=book.getElementsByTagName("title")[0].childNodes[0].nodeValue
+                // author=book.getElementsByTagName("author")[0].childNodes[0].nodeValue
+                // year=book.getElementsByTagName("year")[0].childNodes[0].nodeValue
+
+                option=document.createElement("option")
+                option.text=title
+                booklist.appendChild(option)
+            }
+        </script>
+    </body>
+</html>

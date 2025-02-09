@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <script>
+            window.onload = function()
+            {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "databaseSinhVien.json", true);
+            xhr.send()
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) 
+                {
+                    loadStudents(JSON.parse(xhr.responseText));
+                }
+            }}
+            function loadStudents(jsonDatas)
+            {
+                mybody=document.getElementById("mybody")
+                for(i=0;i<jsonDatas.length;i++)
+                {
+                    jsonData=jsonDatas[i]
+                    tr = document.createElement("tr");
+
+                    tdMa = document.createElement("td");
+                    tdMa.innerText = jsonData.Ma;
+                    tr.appendChild(tdMa);
+
+                    tdTen = document.createElement("td");
+                    tdTen.innerText = jsonData.Ten;
+                    tr.appendChild(tdTen);
+                    
+                    for(j=0;j<jsonData.MonHocs.length;j++)
+                    {
+                        MonHoc=jsonData.MonHocs[j]
+                        if (MonHoc.TenMH.toLowerCase() === "toán") {
+                        toanScore = MonHoc.Diem;
+                        } else if (MonHoc.TenMH.toLowerCase() === "lý") {
+                        lyScore = MonHoc.Diem;
+                        } else if (MonHoc.TenMH.toLowerCase() === "hóa") {
+                        hoaScore = MonHoc.Diem;
+                        }
+                    }
+                        // Cột Điểm Toán
+                        var tdToan = document.createElement("td");
+                        tdToan.innerText = (toanScore !== undefined) ? toanScore : "";
+                        tr.appendChild(tdToan);
+
+                        // Cột Điểm Lý
+                        var tdLy = document.createElement("td");
+                        tdLy.innerText = (lyScore !== undefined) ? lyScore : "";
+                        tr.appendChild(tdLy);
+
+                        // Cột Điểm Hóa
+                        var tdHoa = document.createElement("td");
+                        tdHoa.innerText = (hoaScore !== undefined) ? hoaScore : "";
+                        tr.appendChild(tdHoa);
+
+                        // Tính điểm trung bình
+                        var sum = 0, count = 0;
+                        if (toanScore !== undefined) { sum += toanScore; count++; }
+                        if (lyScore !== undefined) { sum += lyScore; count++; }
+                        if (hoaScore !== undefined) { sum += hoaScore; count++; }
+                        var avg = (count > 0) ? (sum / count).toFixed(2) : 0;
+                        var tdAvg = document.createElement("td");
+                        tdAvg.innerText = avg;
+                        tr.appendChild(tdAvg);
+
+                        // Xét kết quả
+                        var result = (avg >= 5) ? "Đậu" : "Rớt";
+                        var tdResult = document.createElement("td");
+                        tdResult.innerText = result;
+                        tr.appendChild(tdResult);
+
+                        mybody.appendChild(tr);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <p>
+            Muốn tìm gì: 
+            <input type="text" id="search" onkeyup="filterTable()">
+        </p>
+        <table border="1">
+            <thead style="background-color: yellow;">
+                <tr>
+                    <td rowspan="2">Mã Sinh Viên</td>
+                    <td rowspan="2">Mã Sinh Viên</td>
+                    <td colspan="3">Điểm thành phần</td>
+                    <td rowspan="2">Điểm Trung Bình</td>
+                    <td rowspan="2">Kết quả</td>
+                </tr>
+                <tr>
+                    <td>Toán</td>
+                    <td>Lý</td>
+                    <td>Hóa</td>
+                </tr>
+            </thead>
+            <tbody id="mybody">
+
+            </tbody>
+        </table>
+        <script>
+            function filterTable()
+            {
+                keyword = document.getElementById("search").value.toLowerCase();
+                rows = document.querySelectorAll("#mybody tr");
+
+                rows.forEach(row => {
+                    tenSinhVien = row.cells[1].innerText.toLowerCase();
+                    if (tenSinhVien.includes(keyword)) {
+                        row.style.display = "";
+                    } else {
+                        row.style.display = "none";
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

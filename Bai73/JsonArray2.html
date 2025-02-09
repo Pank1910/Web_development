@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <script>
+            var sanphams = [
+                {
+                ma: "sp1",
+                ten: "Cocacola",
+                gia: 15000
+                },
+                {
+                ma: "sp2",
+                ten: "Pepsi",
+                gia: 25000
+                },
+                {
+                ma: "sp3",
+                ten: "Sting",
+                gia: 17000
+                },
+                {
+                ma: "sp4",
+                ten: "Chanh dây",
+                gia: 12000
+                },
+                {
+                ma: "sp5",
+                ten: "Pho mát",
+                gia: 18000
+                },
+            ]
+        </script>
+    </head>
+    <body>
+        <p>
+            Muốn tìm gì
+            <input type="text" id="search" onkeyup="filterTable()">
+        </p>
+        <table border="1">
+            <thead style="background-color: yellow;">
+                <tr>
+                    <td>Mã Sản Phẩm</td>
+                    <td>Tên Sản Phẩm</td>
+                    <td>Đơn giá</td>
+                </tr>
+            </thead>
+            <tbody id="mybody">
+
+            </tbody>
+        </table>
+        <script>
+            function filterTable()
+            {
+                keyword = document.getElementById("search").value.toLowerCase();
+                rows = document.querySelectorAll("#mybody tr");
+
+                rows.forEach(row => {
+                    tenSanPham = row.cells[1].innerText.toLowerCase();
+                    if (tenSanPham.includes(keyword)) {
+                        row.style.display = "";
+                    } else {
+                        row.style.display = "none";
+                    }
+                });
+            }
+
+            mybody=document.getElementById("mybody")
+            for(i=0;i<sanphams.length;i++)
+            {
+                sanpham=sanphams[i]
+                tr=document.createElement("tr")
+                mybody.appendChild(tr)
+
+                td=document.createElement("td")
+                td.innerText=sanpham.ma
+                tr.appendChild(td)
+
+                td=document.createElement("td")
+                td.innerText=sanpham.ten
+                tr.appendChild(td)
+
+                td=document.createElement("td")
+                td.innerText=sanpham.gia
+                tr.appendChild(td)
+            }
+        </script>
+    </body>
+</html>

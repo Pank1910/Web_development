@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <script>
+            dataset={"Sanphams": [
+            {
+            "MaSP": "sp_1xxx",
+            "TenSP": "DELL Inspiron 14NR",
+            "SoLuong": 100,
+            "DonGia": 150000
+            },
+            {
+            "MaSP": "sp_2yyyy",
+            "TenSP": "HP Inspiron 113",
+            "SoLuong": 130,
+            "DonGia": 140000
+            },
+            ]}
+        </script>
+    </head>
+    <body>
+        <button type="button" onclick="displayProducts()">Hiển thị</button>
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>Mã</td>
+                    <td>Tên</td>
+                    <td>Số lượng</td>
+                    <td>Đơn giá</td>
+                </tr>
+            </thead>
+            <tbody id="mybody">
+
+            </tbody>
+        </table>
+        <script>
+            function displayProducts()
+            {
+                mybody=document.getElementById("mybody")
+                for(i=0;i<dataset.Sanphams.length;i++)
+                {
+                    sanpham=dataset.Sanphams[i]
+                    tr=document.createElement("tr")
+                    mybody.appendChild(tr)
+
+                    td=document.createElement("td")
+                    td.innerText=sanpham.MaSP
+                    tr.appendChild(td)
+
+                    td=document.createElement("td")
+                    td.innerText=sanpham.TenSP
+                    tr.appendChild(td)
+
+                    td=document.createElement("td")
+                    td.innerText=sanpham.SoLuong
+                    tr.appendChild(td)
+
+                    td=document.createElement("td")
+                    td.innerText=sanpham.DonGia
+                    tr.appendChild(td)
+                }
+            }
+        </script>
+    </body>
+</html>

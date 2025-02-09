@@ -6,9 +6,9 @@
             function hienthi_sinhvien()
             {
                 var xhr=new XMLHttpRequest();
-                xhr.open("Get","dataset.xml",true);
-                xhr.send();
-                xhr.onreadystatechange=function(){
+                xhr.open("Get","dataset.xml",true); // Kết nối tới máy chủ
+                xhr.send(); // Gửi yêu cầu tới máy chủ
+                xhr.onreadystatechange=function(){ // Máy chủ phản hồi
                     if(xhr.readyState==4 && xhr.status==200)
                     {
                         // Xử lý khi load đc data

@@ -1,0 +1,27 @@
+<p>binding-event works!</p>
+<button (click)="onClick($event)">Click Me</button>
+<br><br>
+Name:
+<input type="text" #myName>
+<button (click)="onSubmit(myName.value)">Submit</button>
+
+<!-- Bổ sung tính năng tính toán -->
+<h2>Máy tính đơn giản</h2>
+
+<label for="numA">Nhập số a:</label>
+<input id="numA" type="number" [(ngModel)]="a">
+<br>
+
+<label for="numB">Nhập số b:</label>
+<input id="numB" type="number" [(ngModel)]="b">
+<br>
+
+<!-- Các nút thực hiện phép toán -->
+<button (click)="add()">Cộng</button>
+<button (click)="subtract()">Trừ</button>
+<button (click)="multiply()">Nhân</button>
+<button (click)="divide()">Chia</button>
+<button (click)="clear()">Xóa trắng</button>
+
+<!-- Hiển thị kết quả -->
+<p>{{ result }}</p>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        
+    </head>
+    <body>
+        <div id="titleholder"></div>
+        <script>
+            // Bước 1: Truy xuất id holder
+            div=document.getElementById("titleholder")
+            // Bước 2: Tạo HTML Element
+            a=document.createElement("a")
+            // Bước 3: Thiết lập thông số cho thuộc tính của HTML Element
+            a.innerText="https://www.tranduythanh.com"
+            a.setAttribute("style","font-size:20;color:blue")
+            a.setAttribute("href","https://www.tranduythanh.com")
+            a.setAttribute("target","_blank")
+            // Bước 4: Đưa HTML element lên web (holder)
+            div.appendChild(a)
+        </script>
+    </body>
+</html>
