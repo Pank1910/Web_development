@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <script>
+            var dataset=[
+                {"cateid":"Cate1",
+                "catename":"Tiểu thuyết kiếm hiệp",
+                "books":[
+                            {
+                                "id":"p1",
+                                "name":"Cửu Âm Chân Kinh",
+                                "price":100,
+                                "image":"book1.png"
+                            },
+                            {
+                                "id":"p2",
+                                "name":"Thần Điêu Đại Hiệp",
+                                "price":200,
+                                "image":"book2.png"
+                            },
+                            {
+                                "id":"p3",
+                                "name":"Tịnh Tà Kiếm Phổ",
+                                "price":300,
+                                "image":"book3.png"
+                            }
+                        ]
+                },
+                {"cateid":"Cate2",
+                "catename":"Tiểu thuyết dạng Tổng Tài",
+                "books":[
+                            {
+                                "id":"p4",
+                                "name":"Mở Mắt Thấy Thần Tài",
+                                "price":400,
+                                "image":"book4.png"
+                            },
+                            {
+                                "id":"p5",
+                                "name":"Nhắm Mắt Cũng Thấy Thần Tài",
+                                "price":500,
+                                "image":"book5.png"
+                            }
+                        ]
+                }
+            ]
+        </script>
+    </head>
+    <body>
+        <h3>Danh sách Books:</h3>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Mã Sách</th>
+                    <th>Tên Sách</th>
+                    <th>Giá Sách</th>
+                    <th>Hình ảnh</th>
+                </tr>
+            </thead>
+            <tbody id="tbodysach">
+
+            </tbody>
+        </table>
+        <script>
+            function hienthi_danhsach_phannhom()
+            {
+                tbodysach=document.getElementById("tbodysach")
+                tbodysach.innerHTML=""
+                for(i=0;i<dataset.length;i++)
+                {
+                    cate=dataset[i]
+                    tr=document.createElement("tr")
+                    td=document.createElement("td")
+                    td.setAttribute("colspan",4)
+                    td.setAttribute("style", "background-color:yellow")
+                    td.innerText=cate.cateid + " - " + cate.catename
+                    tr.appendChild(td)
+                    tbodysach.appendChild(tr)
+                    
+                    books=cate.books
+                    for(j=0;j<books.length;j++)
+                    {
+                        b=books[j]
+                        row=document.createElement("tr")
+                        td=document.createElement("td")
+                        td.innerText=b.id
+
+                        row.appendChild(td)
+                        
+                        td=document.createElement("td")
+                        td.innerText=b.name
+
+                        row.appendChild(td)
+
+                        td=document.createElement("td")
+                        td.innerText=b.price
+                        
+                        row.appendChild(td)
+                        
+                        imghinh=document.createElement("img")
+                        imghinh.setAttribute("src","images/"+b.image)
+                        imghinh.setAttribute("width","150")
+                        imghinh.setAttribute("width","150")
+                        imghinh.setAttribute("alt","Không thấy hình Thím ơi")
+                        td=document.createElement("td")
+                        td.appendChild(imghinh)
+
+                        row.appendChild(td)
+                        tbodysach.appendChild(row)
+                    }
+                }
+            }
+            hienthi_danhsach_phannhom()
+        </script>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <script>
+            var p={
+                "id":"p1",
+                "name":"Book 1",
+                "price":100,
+                "image":"book1.png"
+            }
+        </script>
+    </head>
+    <body>
+        <h3>Thông tin chi tiết sản phẩm:</h3>
+        <table border="1">
+            <tr>
+                <td>Mã sản phẩm:</td>
+                <td id="tdma"></td>
+            </tr>
+            <tr>
+                <td>Tên sản phẩm:</td>
+                <td id="tdten"></td>
+            </tr>
+            <tr>
+                <td>Giá sản phẩm:</td>
+                <td id="tdgia"></td>
+            </tr>
+            <tr>
+                <td>Hình sản phẩm:</td>
+                <td>
+                    <img id="imghinh" width="150" height="150">
+                </td>
+            </tr>
+        </table>
+        <script>
+            function tai_chitiet_sanpham()
+            {
+                document.getElementById("tdma").innerText=p.id
+                document.getElementById("tdten").innerText=p.name
+                document.getElementById("tdgia").innerText=p.price
+                document.getElementById("imghinh").innerText=p.image
+                imghinh.setAttribute("src","images/"+p.image)
+                imghinh.setAttribute("alt","Không thấy hình Thím ơi")
+            }
+            tai_chitiet_sanpham()
+        </script>
+    </body>
+</html>
