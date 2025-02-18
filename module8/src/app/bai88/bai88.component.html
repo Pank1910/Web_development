@@ -1,0 +1,19 @@
+<table border="1">
+    <tr>
+        <td>Ma San Pham</td>
+        <td>Ten San Pham</td>
+        <td>Gia San Pham</td>
+        <td>Picture</td>
+        <td>#</td>
+    </tr>
+    <tr *ngFor="let product of products">
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td><img [src]="product.img" alt="Product Image"></td>
+        <td>
+            <a style="cursor:pointer;" (click)="viewDetail(product)" title="Click
+            here to view detail">Details</a>
+        </td>
+    </tr>
+</table>

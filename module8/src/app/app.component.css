@@ -1,0 +1,87 @@
+/* 🌸 Tổng thể trang */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0); /* Gradient hồng nhạt */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Ngăn cuộn toàn trang */
+}
+
+/* 🏠 Container chính */
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95); /* Màu nền trắng nhẹ */
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    width: 80%;
+    max-width: 700px;
+    height: 90vh; /* Chiếm gần toàn bộ chiều cao */
+    overflow: hidden;
+}
+
+/* 🎀 Tiêu đề trang */
+.title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #f04886; /* Màu chữ hồng đậm */
+    margin-bottom: 10px;
+}
+
+/* 🎯 Bố cục các nút */
+.buttons-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    justify-content: center;
+    padding-bottom: 10px;
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95); /* Giữ nền trắng khi cuộn */
+    z-index: 10;
+    padding-top: 10px;
+}
+
+/* 🎨 Phong cách nút */
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #f77aa3, #e93a7a); /* Gradient hồng đậm */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(216, 27, 96, 0.3);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #f82d77, #e8285b); /* Gradient đậm hơn khi hover */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(216, 27, 96, 0.4);
+}
+
+/* 📝 Nội dung chính có thể cuộn */
+.content {
+    flex-grow: 1;
+    overflow: auto;
+    padding: 10px;
+}
+
+/* 📱 Thiết kế responsive cho điện thoại */
+@media (max-width: 600px) {
+    .buttons-container {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    button {
+        width: 100%;
+    }
+}
