@@ -1,0 +1,91 @@
+/* Thiết lập màu nền tổng thể với hiệu ứng gradient */
+body {
+    background: linear-gradient(135deg, rgba(106, 17, 203, 0.1) 0%, rgba(37, 117, 252, 0.05) 100%);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Tiêu đề Fashion */
+  .text-center {
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Container chính */
+  .container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Nút hành động */
+  .btn {
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+  
+  .btn-dark {
+    background: linear-gradient(135deg, #333, #111);
+    color: white;
+  }
+  
+  .btn-dark:hover {
+    background: linear-gradient(135deg, #444, #222);
+    transform: translateY(-3px);
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #5a0fb3, #1e63e8);
+    transform: translateY(-3px);
+  }
+  
+  .btn-light {
+    background: linear-gradient(135deg, #f8f9fa, #d6d6d6);
+    color: #333;
+    border: 1px solid #ccc;
+  }
+  
+  .btn-light:hover {
+    background: linear-gradient(135deg, #e9ecef, #d6d6d6);
+    transform: translateY(-3px);
+  }
+  
+  /* Cải tiến nút Edit */
+  .btn-light {
+    background: linear-gradient(135deg, #ffcc00, #ff8800);
+    color: white;
+    font-weight: bold;
+    border: none;
+  }
+  
+  .btn-light:hover {
+    background: linear-gradient(135deg, #ffb300, #ff6600);
+    transform: translateY(-3px);
+  }
+  
+  /* Bảng danh sách Fashion */
+  table {
+    border-radius: 15px;
+    overflow: hidden;
+    border: #6a11cb;
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: rgba(106, 17, 203, 0.1);
+  }
+  
+  .table img {
+    border-radius: 10px;
+    object-fit: cover;
+  }

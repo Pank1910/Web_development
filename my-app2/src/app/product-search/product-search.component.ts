@@ -9,10 +9,32 @@ export class ProductSearchComponent {
   public products=this.gen_products()
   public minprice:any
   public maxprice:any
-  searchProduct(){
-    let dataset=this.gen_products()
-    // chỗ này ta kiểm tra dataset [minprice,maxprice]
-    this.products=[]
+  searchProduct() {
+    let dataset = this.gen_products();
+    // Lọc sản phẩm theo khoảng giá
+    this.products = dataset.filter(product => {
+      // Kiểm tra nếu không nhập giá thì return tất cả
+      if (!this.minprice && !this.maxprice) {
+        return true;
+      }
+      
+      // Kiểm tra theo khoảng giá
+      if (this.minprice && this.maxprice) {
+        return product.price >= this.minprice && product.price <= this.maxprice;
+      }
+      
+      // Kiểm tra chỉ có minprice
+      if (this.minprice) {
+        return product.price >= this.minprice;
+      }
+      
+      // Kiểm tra chỉ có maxprice 
+      if (this.maxprice) {
+        return product.price <= this.maxprice;
+      }
+      
+      return true;
+    });
   }
   gen_products(){
     return [

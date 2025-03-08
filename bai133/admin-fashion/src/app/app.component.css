@@ -1,0 +1,120 @@
+/* Container chính cho phần Fashion */
+.fashion-container {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(106, 17, 203, 0.1) 0%, rgba(37, 117, 252, 0.05) 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(106, 17, 203, 0.2);
+    border: 1px solid rgba(106, 17, 203, 0.1);
+}
+
+/* Nút điều hướng */
+nav {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 15px 0;
+    border-bottom: 2px solid rgba(106, 17, 203, 0.2);
+}
+
+nav .btn-fashion-style {
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    margin: 0 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
+}
+
+nav .btn-fashion-style:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(106, 17, 203, 0.4);
+}
+
+nav .btn-fashion-style:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(106, 17, 203, 0.3);
+}
+
+nav .btn-fashion-style:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.3);
+}
+
+/* Header styles */
+.fashion-title {
+    color: white;
+    text-align: center;
+    font-size: 2.5rem;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    padding: 15px;
+}
+
+.fashion-tagline {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+/* Footer */
+.fashion-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(106, 17, 203, 0.2);
+    color: #6a11cb;
+    font-style: italic;
+}
+
+/* Phần nội dung hiển thị */
+router-outlet {
+    margin-top: 30px;
+    display: block;
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(106, 17, 203, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .fashion-container {
+        padding: 15px;
+        border-radius: 15px;
+    }
+    
+    nav {
+        margin-bottom: 25px;
+        padding: 10px 0;
+    }
+    
+    nav .btn-fashion-style {
+        padding: 12px 24px;
+        font-size: 14px;
+        margin: 5px;
+        border-radius: 30px;
+    }
+    
+    router-outlet {
+        padding: 15px;
+        border-radius: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav .btn-fashion-style {
+        display: block;
+        width: 80%;
+        margin: 10px auto;
+    }
+}

@@ -1,0 +1,57 @@
+<div class="container fashion-container">
+  <!-- Search Bar with Dropdown -->
+  <div class="search-bar mb-4">
+    <div class="d-flex justify-content-center">
+      <div class="search-wrapper">
+        <div class="input-group">
+          <input 
+            type="text" 
+            placeholder="SEARCH HERE" 
+            class="search-input form-control" 
+            [(ngModel)]="searchText" 
+            list="styleList"
+            (input)="searchFashions()">
+          <datalist id="styleList">
+            <option *ngFor="let style of styles" [value]="style">{{style}}</option>
+          </datalist>
+          <button class="search-button" (click)="searchFashions()">SEARCH</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="errMessage" class="alert alert-danger">
+    {{ errMessage }}
+  </div>
+
+  <!-- Lặp qua từng style để hiển thị các section -->
+  <div *ngFor="let style of styles">
+    <div *ngIf="getFilteredFashionsByStyle(style).length > 0" class="style-section mb-5">
+      <!-- Header cho mỗi style -->
+      <h3 class="section-title text-center justify-content-center mb-4">{{ style.toUpperCase() }}</h3>
+
+      <!-- Fashion Grid cho mỗi style -->
+      <div class="row g-4">
+        <div *ngFor="let fashion of getFilteredFashionsByStyle(style)" class="col-12 col-sm-6 col-md-3">
+          <div class="fashion-card" [ngClass]="{'trend-card': style === 'Trends'}" (click)="detailFashion(fashion._id)">
+            <div class="fashion-image-container">
+              <img src="{{ fashion.fashion_image }}" class="fashion-image" alt="{{ fashion.fashion_subject }}">
+              <div class="view-button">
+                <i class="bi bi-search"></i>
+              </div>
+            </div>
+            <div class="fashion-info">
+              <h5 class="fashion-title">{{ fashion.fashion_subject }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hiển thị thông báo nếu không có dữ liệu -->
+  <div *ngIf="filteredFashions.length === 0" class="text-center my-5">
+    <p>No fashion items found. Try a different search.</p>
+  </div>
+</div>
